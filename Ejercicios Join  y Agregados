@@ -18,6 +18,10 @@
 			ON s.ID_SOCIO = V.ID_SOCIO
 	group by NOMBRE_SOCIO
 4º Mostrar los socios con sus tiendas correspondientes.
+	select nombre_tienda,cod_socio,NOMBRE_SOCIO 
+	from dbo.LKP_TIENDAS t
+	inner join dbo.LKP_SOCIO s
+		on t.ID_SOCIO=s.ID_SOCIO
 5º Localizar los proveedores de los cuales más productos se han vendido.
 6º Mostrar las marcas más vendidas.
 7º Extraer aquellos registros para los que no disponemos de referencias en las tablas de socio, tiendas, marcas o proveedores.
