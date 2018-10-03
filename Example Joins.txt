@@ -56,3 +56,5 @@
 	on c.id_cliente=con.id_cliente
 	where c.nombre in ('Manuel Martin','Ana Garcia')
 9º Mostrar los clientes que en su nombre o apellido tenga una a.
+	select * from #cliente 
+	where nombre like '%a%'
