@@ -42,3 +42,4 @@
 	on c.id_cliente=con.id_cliente
 	where c.id_cliente is null 
 	or con.id_cliente is null
+8º Mostrar los datos de los contratos de los clientes Manuel Martin y Ana Garcia
