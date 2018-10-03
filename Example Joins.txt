@@ -37,3 +37,8 @@
 	on c.id_cliente=con.id_cliente
 	where c.id_cliente is null
 7º Mostrar los contrato y clientes sin relacion entre si.
+	select * from #contrato con 
+	full outer join #cliente c  
+	on c.id_cliente=con.id_cliente
+	where c.id_cliente is null 
+	or con.id_cliente is null
