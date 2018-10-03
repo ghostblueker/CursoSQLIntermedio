@@ -1,4 +1,16 @@
 /*Ejercicios repaso agregados*/
 
 --Ejercicio 1: Mes que mas ventas
+  select top 1 id_mes,sum(importe_venta) 
+	from [dbo].[FACT_VENTAS]
+	group by id_mes 
+	order by 2 desc
 --Ejercicio 2: Mes que menos ventas redondeado a 2 decimales y poniendo el signo del euro detras
+  select top 1 id_mes
+	,concat(cast(sum(importe_venta) as numeric(10,1)),' €')
+	,concat(round(sum(importe_venta),0) ,' €' )
+	,cast(round(sum(importe_venta),1) as varchar)+' €' 
+	,cast(round(sum(importe_venta),2) as varchar)+' €' 
+	from [dbo].[FACT_VENTAS]
+	group by id_mes 
+	order by 2 asc
