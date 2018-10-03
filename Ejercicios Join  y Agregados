@@ -7,6 +7,10 @@
 	SELECT SUM(UNIDADES) AS PRODUCTOS_VENDIDOS 
 	FROM DBO.FACT_VENTAS
 2º Mostrar todos los importes de venta con el nombre del artículo y su fecha de venta.
+	SELECT NOMBRE_ARTICULO,ID_DIA,IMPORTE_VENTA
+	FROM DBO.FACT_VENTAS V
+		INNER JOIN DBO.LKP_ARTICULO A
+			ON A.ID_ARTICULO = V.ID_ARTICULO
 3º Extraer los datos de los socios ordenados de mayor a menor margen obtenido.
 4º Mostrar los socios con sus tiendas correspondientes.
 5º Localizar los proveedores de los cuales más productos se han vendido.
