@@ -1,0 +1,9 @@
+/* Ejercicios Join y agregados */
+
+1º Según la tabla de ventas actual ¿Cuáles han sido los importes de venta totales? ¿Y el total de productos vendidos?
+2º Mostrar todos los importes de venta con el nombre del artículo y su fecha de venta.
+3º Extraer los datos de los socios ordenados de mayor a menor margen obtenido.
+4º Mostrar los socios con sus tiendas correspondientes.
+5º Localizar los proveedores de los cuales más productos se han vendido.
+6º Mostrar las marcas más vendidas.
+7º Extraer aquellos registros para los que no disponemos de referencias en las tablas de socio, tiendas, marcas o proveedores.
