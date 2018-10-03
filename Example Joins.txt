@@ -23,4 +23,7 @@
 	right join #cliente c 
 	on c.id_cliente=con.id_cliente
 4º Mostrar todos los contratos y clientes incluso si no tienen relaciones entre si.
+	select * from #cliente c 
+	full outer join #contrato con 
+	on c.id_cliente=con.id_cliente
 5º Mostrar los contrato y clientes sin relacion entre si.
