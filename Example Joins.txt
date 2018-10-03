@@ -43,3 +43,16 @@
 	where c.id_cliente is null 
 	or con.id_cliente is null
 8º Mostrar los datos de los contratos de los clientes Manuel Martin y Ana Garcia
+	select con.id_contrato,con.id_cliente,con.descripcion 
+	from #contrato con 
+	inner join #cliente c  
+	on c.id_cliente=con.id_cliente
+	where c.nombre='Manuel Martin' 
+	or c.nombre='Ana Garcia'
+	
+	select con.id_contrato,con.id_cliente,con.descripcion 
+	from #contrato con 
+	inner join #cliente c  
+	on c.id_cliente=con.id_cliente
+	where c.nombre in ('Manuel Martin','Ana Garcia')
+9º Mostrar los clientes que en su nombre o apellido tenga una a.
