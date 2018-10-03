@@ -12,6 +12,11 @@
 		INNER JOIN DBO.LKP_ARTICULO A
 			ON A.ID_ARTICULO = V.ID_ARTICULO
 3º Extraer los datos de los socios ordenados de mayor a menor margen obtenido.
+	SELECT NOMBRE_SOCIO,sum(MARGEN)
+	FROM DBO.FACT_VENTAS V
+		INNER JOIN DBO.LKP_SOCIO s
+			ON s.ID_SOCIO = V.ID_SOCIO
+	group by NOMBRE_SOCIO
 4º Mostrar los socios con sus tiendas correspondientes.
 5º Localizar los proveedores de los cuales más productos se han vendido.
 6º Mostrar las marcas más vendidas.
