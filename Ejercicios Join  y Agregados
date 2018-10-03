@@ -34,4 +34,12 @@
 	group by NOMBRE_PROVEEDOR
 	order by 2 desc
 6º Mostrar las marcas más vendidas.
+	select NOMBRE_MARCA,sum(unidades)
+	from dbo.LKP_MARCA m
+			inner join dbo.LKP_ARTICULO a
+			on a.ID_MARCA=m.ID_MARCA
+				inner join dbo.FACT_VENTAS v
+				on v.ID_ARTICULO=a.ID_ARTICULO
+	group by NOMBRE_MARCA
+	order by 2 desc
 7º Extraer aquellos registros para los que no disponemos de referencias en las tablas de socio, tiendas, marcas o proveedores.
