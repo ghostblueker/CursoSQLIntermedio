@@ -26,4 +26,14 @@
 	select * from #cliente c 
 	full outer join #contrato con 
 	on c.id_cliente=con.id_cliente
-5º Mostrar los contrato y clientes sin relacion entre si.
+5º Clientes que no tienen contratos asignados
+	select * from #cliente c 
+	left join #contrato con 
+	on c.id_cliente=con.id_cliente
+	where con.id_cliente is null
+6º Contratos que no tienen clientes asignados
+	select * from #contrato con 
+	left join #cliente c  
+	on c.id_cliente=con.id_cliente
+	where c.id_cliente is null
+7º Mostrar los contrato y clientes sin relacion entre si.
