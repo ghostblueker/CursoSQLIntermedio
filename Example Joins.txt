@@ -3,10 +3,24 @@
 
 
 1º Mostrar todos los contratos que tengan relación con cliente.
-  select * from #cliente c 
-	  inner join #contrato con 
-	  on c.id_cliente=con.id_cliente
+  	select * from #cliente c 
+	inner join #contrato con 
+	on c.id_cliente=con.id_cliente
 2º Mostrar todos los contratos incluso los que no tengan relación cliente.
+	select * from #contrato con 
+	left join #cliente c 
+	on c.id_cliente=con.id_cliente
+
+	select * from #cliente c 
+	right join #contrato con 
+	on c.id_cliente=con.id_cliente
 3º Mostrar todos los clientes incluso los que no tengan relación con el contrato.
+	select * from #cliente c 
+	left join #contrato con 
+	on c.id_cliente=con.id_cliente
+
+	select * from #contrato con 
+	right join #cliente c 
+	on c.id_cliente=con.id_cliente
 4º Mostrar todos los contratos y clientes incluso si no tienen relaciones entre si.
 5º Mostrar los contrato y clientes sin relacion entre si.
