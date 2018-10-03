@@ -1,0 +1,9 @@
+/*Ejercicios joins*/
+/* Todos los ejecicios hay que hacer join entre las dos tablas*/
+
+
+1º Mostrar todos los contratos que tengan relación con cliente.
+2º Mostrar todos los contratos incluso los que no tengan relación cliente.
+3º Mostrar todos los clientes incluso los que no tengan relación con el contrato.
+4º Mostrar todos los contratos y clientes incluso si no tienen relaciones entre si.
+5º Mostrar los contrato y clientes sin relacion entre si.
