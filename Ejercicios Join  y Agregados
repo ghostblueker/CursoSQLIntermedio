@@ -23,5 +23,15 @@
 	inner join dbo.LKP_SOCIO s
 		on t.ID_SOCIO=s.ID_SOCIO
 5º Localizar los proveedores de los cuales más productos se han vendido.
+	select NOMBRE_PROVEEDOR,sum(unidades)
+	from dbo.LKP_PROVEEDOR p
+		inner join dbo.LKP_MARCA m
+		on p.ID_PROVEEDOR=m.ID_PROVEEDOR
+			inner join dbo.LKP_ARTICULO a
+			on a.ID_MARCA=m.ID_MARCA
+				inner join dbo.FACT_VENTAS v
+				on v.ID_ARTICULO=a.ID_ARTICULO
+	group by NOMBRE_PROVEEDOR
+	order by 2 desc
 6º Mostrar las marcas más vendidas.
 7º Extraer aquellos registros para los que no disponemos de referencias en las tablas de socio, tiendas, marcas o proveedores.
