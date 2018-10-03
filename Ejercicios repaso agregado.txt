@@ -1,4 +1,4 @@
 /*Ejercicios repaso agregados*/
 
 --Ejercicio 1: Mes que mas ventas
---Ejercicio 2: Mes que menos ventas
+--Ejercicio 2: Mes que menos ventas redondeado a 2 decimales y poniendo el digno del euro detras
