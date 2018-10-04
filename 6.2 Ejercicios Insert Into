@@ -25,6 +25,12 @@
 				ON A.PROFESOR = B.NOMBRE
 				
 3º Crear 3 grupos para 3ºESO.
+
+	INSERT INTO DBO.CURSO_GRUPO_SC
+	VALUES ('G3ESOA2018','3ºESO','A',2018),
+		('G3ESOB2018','3ºESO','B',2018),
+		('G3ESOC2018','3ºESO','C',2018)
+		
 4º Insertar nuestro nombre en la tabla de profesores.
 5º Crear un registros para dos aulas nuevas con capacidad para 22 alumnos.
 6º Crear la asignatura de informática, que se impartirá, al grupo C, en una de las aulas que acabamos de crear en el punto anterior.
