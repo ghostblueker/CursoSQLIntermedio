@@ -40,5 +40,5 @@
 	
 	INSERT INTO CURSO_AULA_SC VALUES('A14','A14',22,'G3ESOA2018',2018)
 	,('A15','A15',22,'G3ESOB2018',2018)
-6º Crear la asignatura de informática, que se impartirá, al grupo C, en una de las aulas que acabamos de crear en el punto anterior.
+6º Crear la asignatura de informática, que se impartirá, al grupo C 4ºESO, campo grupo que extraemos de la tabla CURSO_GRUPO_SC.
 7º Generar un cargo nuevo para asignarlo a los tutores.
