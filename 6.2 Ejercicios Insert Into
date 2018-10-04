@@ -32,6 +32,13 @@
 		('G3ESOC2018','3ºESO','C',2018)
 		
 4º Insertar nuestro nombre en la tabla de profesores.
+	
+	INSERT INTO CURSO_PROFESOR_SC 
+	VALUES ('PANTORIVE','ANTONIO','RIVERA',' ','BI',2018,'PROF2018')
+	
 5º Crear un registros para dos aulas nuevas con capacidad para 22 alumnos.
+	
+	INSERT INTO CURSO_AULA_SC VALUES('A14','A14',22,'G3ESOA2018',2018)
+	,('A15','A15',22,'G3ESOB2018',2018)
 6º Crear la asignatura de informática, que se impartirá, al grupo C, en una de las aulas que acabamos de crear en el punto anterior.
 7º Generar un cargo nuevo para asignarlo a los tutores.
