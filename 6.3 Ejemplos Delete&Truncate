@@ -1,0 +1,30 @@
+CREATE TABLE Persons (
+    ID int identity(1,1),
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (ID)
+);
+
+INSERT INTO Persons (FirstName,LastName)
+VALUES ('Lars','Monsen');
+INSERT INTO Persons (FirstName,LastName)
+VALUES ('PEPE','Perez');
+select * from Persons;
+--Borrar segundo registro
+delete from Persons where LastName='Perez'
+-- Volvemos a insertar el registro
+INSERT INTO Persons (FirstName,LastName)
+VALUES ('PEPE','Perez');
+
+
+delete from Persons;
+
+truncate table Persons;
+
+INSERT INTO Persons (FirstName,LastName)
+VALUES ('Lars','Monsen');
+INSERT INTO Persons (FirstName,LastName)
+VALUES ('PEPE','Perez');
+
+--Reincia el autoincremental
