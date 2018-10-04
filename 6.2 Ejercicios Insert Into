@@ -1,6 +1,21 @@
 /* Ejercicios a realizar con la funcion insert into*/
 
 1º Realizar una carga de datos en todas las tablas con vuestras siglas ayudándoos de las tablas originales (todas menos la tabla de asignatura).
+  INSERT INTO CARREFOUR.DBO.CURSO_ALUMNO_ARC
+	SELECT * FROM CARREFOUR.DBO.CURSO_ALUMNO
+
+  INSERT INTO CARREFOUR.DBO.CURSO_CARGO_ARC
+    SELECT * FROM CARREFOUR.DBO.CURSO_CARGO
+
+  INSERT INTO CARREFOUR.DBO.CURSO_PROFESOR_ARC
+    SELECT * FROM CARREFOUR.DBO.CURSO_PROFESOR
+
+  INSERT INTO CARREFOUR.DBO.CURSO_AULA_ARC
+    SELECT * FROM CARREFOUR.DBO.CURSO_AULA
+
+  INSERT INTO CARREFOUR.DBO.CURSO_GRUPO_ARC
+    SELECT * FROM CARREFOUR.DBO.CURSO_GRUPO
+  
 2º Cargar la tabla de asignatura reemplazando el nombre del profesor por su código correspondiente de la tabla de profesores.
 3º Crear 3 grupos para 3ºESO.
 4º Insertar nuestro nombre en la tabla de profesores.
