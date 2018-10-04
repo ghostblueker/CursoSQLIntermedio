@@ -43,4 +43,19 @@
 6º Crear la asignatura de informática, que se impartirá, al grupo C 4ºESO, campo grupo que extraemos de la tabla CURSO_GRUPO_SC.
 
 	INSERT INTO CURSO_ASIGNATURA_SC VALUES( 'ASIG','INFORMATICA','4ºESO','C',2018,'PROFJJD')
+7º Añadir columna a tabla CURSO_ASGINATURA_SC y añadir los mismo valores que el anterior añadiendo el COD_GRUPO
+
+	-- Añadir columna COD_GRUPO a tabla
+ALTER TABLE CURSO_ASIGNATURA_SC ADD COD_GRUPO NVARCHAR(20)
+	-- Inserción de datos de asginatura
+	INSERT INTO CURSO_ASIGNATURA_SC VALUES( 'ASIG'
+	,'INFORMATICA'
+	,'4ºESO'
+	,'C'
+	,2018
+	,'PROFJJD'
+	,(SELECT DISTINCT COD_GRUPO 
+	FROM CURSO_GRUPO_SC CG 
+	WHERE CG.GRUPO='C' AND CURSO='4ºESO'))
 7º Generar un cargo nuevo para asignarlo a los tutores.
+	insert into [CURSO_CARGO_SC] values ('TUT2018','TUTORES',2018)
