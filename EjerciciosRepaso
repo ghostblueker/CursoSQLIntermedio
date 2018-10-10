@@ -1,0 +1,9 @@
+/* EJERCICIOS REPASO CURSO SQL INTERMEDIO */
+
+1º  Nombre de las tiendas unicos (eliminando nombres duplicados).
+2º  ¿Cuantas tiendas en total hay? ¿Cuantos nombre de tienda distintos existen?
+4º ¿Cual es la tienda que mas unidades a vendido? ¿Y en el período 20180102 - 20180105?
+3ª  ¿Cuantos articulos tenemos? ¿Cuantos artículos tenemos que su código empiece por A02?
+4º  ¿Cual es el artículo que menos unidades se han vendido? ¿Cual es la media de importe_venta de ese articulo? ¿Cual es la media de importe_venta de ese articulo en el período 20180102 - 20180105?
+5º ¿Cuantos artículos tiene cada marca? ¿Cual es el ordén de marcas por total de importe_venta?
+6ª ¿Cual son las ventas totales por marca cuando MARCA_PROPIA es 'S'?
