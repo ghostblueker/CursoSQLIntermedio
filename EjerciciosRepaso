@@ -1,9 +1,82 @@
 /* EJERCICIOS REPASO CURSO SQL INTERMEDIO */
 
-1º  Nombre de las tiendas unicos (eliminando nombres duplicados).
-2º  ¿Cuantas tiendas en total hay? ¿Cuantos nombre de tienda distintos existen?
-4º ¿Cual es la tienda que mas unidades a vendido? ¿Y en el período 20180102 - 20180105?
-3ª  ¿Cuantos articulos tenemos? ¿Cuantos artículos tenemos que su código empiece por A02?
-4º  ¿Cual es el artículo que menos unidades se han vendido? ¿Cual es la media de importe_venta de ese articulo? ¿Cual es la media de importe_venta de ese articulo en el período 20180102 - 20180105?
-5º ¿Cuantos artículos tiene cada marca? ¿Cual es el ordén de marcas por total de importe_venta?
-6ª ¿Cual son las ventas totales por marca cuando MARCA_PROPIA es 'S'?
+
+--1º  Nombre de las tiendas unicos (eliminando nombres duplicados).
+SELECT DISTINCT(NOMBRE_TIENDA) 
+	FROM [dbo].[LKP_TIENDAS]
+	
+--2º  ¿Cuantas tiendas en total hay?
+-- ¿Cuantos nombre de tienda distintos existen?
+SELECT COUNT(ID_TIENDA) FROM dbo.LKP_TIENDAS
+SELECT COUNT (DISTINCT NOMBRE_TIENDA) 
+	FROM dbo.LKP_TIENDAS
+
+--3º ¿Cual es la tienda que mas unidades ha vendido? 
+--¿Y en el período 20180102 - 20180105?
+
+SELECT NOMBRE_TIENDA,SUM(UNIDADES) 
+	FROM FACT_VENTAS TH INNER JOIN LKP_TIENDAS T
+		ON TH.ID_TIENDA=T.ID_TIENDA
+	GROUP BY NOMBRE_TIENDA
+	ORDER BY 2 DESC
+
+SELECT NOMBRE_TIENDA,SUM(UNIDADES) 
+	FROM FACT_VENTAS TH INNER JOIN LKP_TIENDAS T
+		ON TH.ID_TIENDA=T.ID_TIENDA
+	WHERE TH.ID_DIA BETWEEN 20180102 AND 20180105
+	GROUP BY NOMBRE_TIENDA
+	ORDER BY 2 DESC
+
+--4ª  ¿Cuantos articulos tenemos? 
+--¿Cuantos artículos tenemos que su código empiece por A02?
+
+SELECT COUNT(ID_ARTICULO) FROM dbo.LKP_ARTICULO
+SELECT COUNT (*) 
+	FROM dbo.LKP_ARTICULO
+	WHERE COD_ARTICULO LIKE 'A02%'
+
+--5º  ¿Cual es el artículo que menos unidades se han vendido? 
+--¿Cual es la media de importe_venta de ese articulo? 
+--¿Cual es la media de importe_venta de ese articulo en el período 20180102 - 20180105?
+
+SELECT A.ID_ARTICULO,NOMBRE_ARTICULO,SUM(UNIDADES) 
+	FROM FACT_VENTAS TH INNER JOIN LKP_ARTICULO A
+		ON TH.ID_ARTICULO=A.ID_ARTICULO
+	GROUP BY A.ID_ARTICULO,NOMBRE_ARTICULO
+	ORDER BY 3 ASC
+
+SELECT A.ID_ARTICULO,NOMBRE_ARTICULO,AVG(IMPORTE_VENTA) 
+	FROM FACT_VENTAS TH INNER JOIN LKP_ARTICULO A
+		ON TH.ID_ARTICULO=A.ID_ARTICULO
+	WHERE A.ID_ARTICULO=242379
+	GROUP BY A.ID_ARTICULO,NOMBRE_ARTICULO
+
+SELECT A.ID_ARTICULO,NOMBRE_ARTICULO,AVG(IMPORTE_VENTA) 
+	FROM FACT_VENTAS TH INNER JOIN LKP_ARTICULO A
+		ON TH.ID_ARTICULO=A.ID_ARTICULO
+	WHERE A.ID_ARTICULO=242379 AND TH.ID_DIA BETWEEN 20180102 AND 20180105
+	GROUP BY A.ID_ARTICULO,NOMBRE_ARTICULO
+--6º ¿Cuantos artículos tiene cada marca? 
+
+SELECT NOMBRE_MARCA,COUNT(ID_ARTICULO) 
+	FROM LKP_ARTICULO A
+		INNER JOIN LKP_MARCA M 
+			ON A.ID_MARCA=M.ID_MARCA
+	GROUP BY NOMBRE_MARCA
+
+--¿Cual es el ordén de marcas por total de importe_venta?
+
+SELECT NOMBRE_MARCA, SUM(IMPORTE_VENTA) 
+	FROM LKP_ARTICULO A
+		INNER JOIN LKP_MARCA M ON A.ID_MARCA=M.ID_MARCA
+		INNER JOIN FACT_VENTAS TH ON TH.ID_ARTICULO=A.ID_ARTICULO 
+	GROUP BY NOMBRE_MARCA
+
+--7ª ¿Cual son las ventas totales por marca cuando MARCA_PROPIA es 'S'?
+
+SELECT NOMBRE_MARCA, SUM(IMPORTE_VENTA) 
+	FROM LKP_ARTICULO A
+		INNER JOIN LKP_MARCA M ON A.ID_MARCA=M.ID_MARCA
+		INNER JOIN FACT_VENTAS TH ON TH.ID_ARTICULO=A.ID_ARTICULO 
+	WHERE MARCA_PROPIA='S'
+	GROUP BY NOMBRE_MARCA
